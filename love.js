@@ -54,7 +54,7 @@ setInterval(function() {
     createHeart();
 }, 300);*/
 
-const music = new Audio('lovesong.mp3'); 
+const music = new Audio('https://github.com/Kellydevtech/valentine-proposal/blob/main/lovesong%20(1).mp3')
 music.volume = 0.3;
 music.loop = true;
 music.currentTime = 70;  
