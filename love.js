@@ -53,17 +53,26 @@ setInterval(function() {
 setInterval(function() {
     createHeart();
 }, 300);*/
-
-const music = new Audio('lovesong (1).mp3')
+const music = new Audio('lovesong (1).mp3');
 music.volume = 0.3;
 music.loop = true;
-music.currentTime = 70;  
 
-music.play().catch(function() {
-    document.body.addEventListener('click', function() {
-        music.play();
-    }, { once: true });
+// Wait until the audio is ready
+music.addEventListener('loadedmetadata', function () {
+    music.currentTime = 70;
 });
+
+// iPhone requires user interaction
+function startMusic() {
+    music.currentTime = 70;
+    music.play();
+}
+
+// Start on first click (works for iPhone)
+document.body.addEventListener('click', function () {
+    startMusic();
+}, { once: true });
+
 
 function createHeart() {
     const heart = document.createElement('div');
